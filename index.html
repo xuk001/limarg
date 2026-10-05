@@ -5,18 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>福建省泉州第五中学</title>
 <style>
-:root{
-  --primary-red:#8B1A1A;
-  --gold:#C9A96E;
-  --text-dark:#333;
-  --text-gray:#666;
-}
+:root{--primary-red:#8B1A1A;--gold:#C9A96E;--text-dark:#333;--text-gray:#666;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Heiti SC",sans-serif;color:var(--text-dark);background:#f7f5f2;}
 .page{display:none;}
 .page.active{display:block;}
 
-/* 通用导航 */
 .top-nav{background:var(--primary-red);color:#fff;padding:0 40px;display:flex;justify-content:space-between;align-items:center;height:70px;gap:20px;}
 .logo{font-size:22px;font-weight:bold;letter-spacing:2px;white-space:nowrap;cursor:pointer;}
 .nav-right{display:flex;align-items:center;gap:20px;}
@@ -25,8 +19,11 @@ body{font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Heiti SC",s
 .forum-btn{background:var(--gold);color:#fff !important;padding:8px 18px;border-radius:20px;font-size:14px;}
 .back-home-btn,.back-forum-btn{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.7);padding:7px 18px;border-radius:20px;font-size:14px;cursor:pointer;transition:background .3s;}
 .back-home-btn:hover,.back-forum-btn:hover{background:rgba(255,255,255,.18);}
+.search-box{display:flex;align-items:center;background:rgba(255,255,255,.15);border-radius:20px;padding:6px 14px;}
+.search-box input{background:transparent;border:none;outline:none;color:#fff;font-size:14px;width:150px;}
+.search-box input::placeholder{color:rgba(255,255,255,.65);}
+.search-box button{background:none;border:none;color:#fff;cursor:pointer;font-size:15px;}
 
-/* 首页 */
 .hero{background:linear-gradient(135deg,#8B1A1A 0%,#5a0f0f 100%);height:400px;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;text-align:center;}
 .hero h1{font-size:48px;margin-bottom:16px;letter-spacing:4px;}
 .hero p{font-size:18px;opacity:.9;}
@@ -45,18 +42,10 @@ body{font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Heiti SC",s
 .stat-number{font-size:36px;color:var(--primary-red);font-weight:bold;}
 .stat-label{color:var(--text-gray);margin-top:8px;font-size:14px;}
 
-/* 搜索框 */
-.search-box{display:flex;align-items:center;background:rgba(255,255,255,.15);border-radius:20px;padding:6px 14px;}
-.search-box input{background:transparent;border:none;outline:none;color:#fff;font-size:14px;width:150px;}
-.search-box input::placeholder{color:rgba(255,255,255,.65);}
-.search-box button{background:none;border:none;color:#fff;cursor:pointer;font-size:15px;}
-
-/* 页面横幅 */
 .page-banner{background:linear-gradient(135deg,#8B1A1A 0%,#5a0f0f 100%);height:180px;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;}
 .page-banner h1{font-size:32px;letter-spacing:3px;margin-bottom:10px;}
 .page-banner p{font-size:15px;opacity:.85;}
 
-/* 论坛 */
 .forum-wrap{max-width:1000px;margin:40px auto;padding:0 20px;}
 .post-box{background:#fff;border-radius:10px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:30px;}
 .post-box h2{font-size:18px;color:var(--primary-red);margin-bottom:16px;border-left:4px solid var(--gold);padding-left:12px;}
@@ -78,8 +67,9 @@ body{font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Heiti SC",s
 .comment{background:#faf8f5;border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.7;color:#555;}
 .comment .c-name{color:var(--primary-red);font-weight:700;margin-right:8px;}
 .comment .c-time{color:#999;font-size:12px;}
+.search-tip{background:#fff;border-radius:10px;padding:16px 22px;margin-bottom:24px;font-size:14px;color:var(--text-gray);box-shadow:0 2px 10px rgba(0,0,0,.05);}
+.search-tip strong{color:var(--primary-red);}
 
-/* 公告 */
 .notice-wrap{max-width:860px;margin:40px auto;padding:0 20px;display:flex;flex-direction:column;gap:30px;}
 .notice-card{background:#fff;border-radius:10px;padding:34px 40px;box-shadow:0 2px 14px rgba(0,0,0,.06);border-top:5px solid var(--gold);}
 .notice-card.punish{border-top-color:#b02a2a;}
@@ -96,7 +86,6 @@ body{font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Heiti SC",s
 .teacher-info p{font-size:14px;line-height:1.9;color:#555;margin-bottom:6px;}
 .back-link{display:inline-block;margin-top:10px;color:var(--primary-red);text-decoration:none;font-size:14px;cursor:pointer;}
 
-/* 寄望实验室 */
 .lab-banner{background:linear-gradient(135deg,#1a2a3a 0%,#0d1520 100%);height:200px;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;text-align:center;}
 .lab-banner h1{font-size:34px;letter-spacing:3px;margin-bottom:10px;font-family:"Consolas","SF Mono","Menlo","Courier New","Microsoft YaHei",monospace;}
 .lab-banner p{font-size:14px;opacity:.7;font-family:"Consolas","SF Mono","Menlo","Courier New","Microsoft YaHei",monospace;}
@@ -109,31 +98,71 @@ body{font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Heiti SC",s
 .lab-wrap .comment{background:#f4f6f9;}
 .lab-wrap .comment .c-name{color:#1a2a3a;}
 
-/* 页脚 */
 footer{background:#2a2a2a;color:#aaa;text-align:center;padding:30px;font-size:13px;margin-top:50px;}
 
-/* 过场动画 */
 .intro-overlay{position:fixed;inset:0;background:#000;z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .8s ease;overflow:hidden;}
 .intro-overlay.hide{opacity:0;pointer-events:none;}
 .intro-overlay.shake{animation:screenShake .12s linear infinite;}
-@keyframes screenShake{
-  0%{transform:translate(0,0);}
-  25%{transform:translate(-6px,4px);}
-  50%{transform:translate(5px,-5px);}
-  75%{transform:translate(-4px,-3px);}
-  100%{transform:translate(0,0);}
-}
+@keyframes screenShake{0%{transform:translate(0,0);}25%{transform:translate(-6px,4px);}50%{transform:translate(5px,-5px);}75%{transform:translate(-4px,-3px);}100%{transform:translate(0,0);}}
 .intro-text{font-size:26px;letter-spacing:3px;color:#c0392b;font-weight:700;white-space:nowrap;overflow:hidden;clip-path:inset(0 100% 0 0);animation:revealText 4.5s ease forwards;animation-delay:.6s;text-shadow:0 0 12px rgba(192,57,43,.6);position:absolute;}
 .intro-text.fade-out{transition:opacity .4s ease;opacity:0;}
-@keyframes revealText{
-  from{clip-path:inset(0 100% 0 0);opacity:.2;}
-  to{clip-path:inset(0 0 0 0);opacity:1;}
-}
+@keyframes revealText{from{clip-path:inset(0 100% 0 0);opacity:.2;}to{clip-path:inset(0 0 0 0);opacity:1;}}
 .swarm{position:absolute;inset:0;pointer-events:none;}
 .swarm span{position:absolute;color:#c0392b;font-weight:700;white-space:nowrap;opacity:0;text-shadow:0 0 10px rgba(192,57,43,.7);animation:swarmIn .45s ease forwards;}
-@keyframes swarmIn{
-  from{opacity:0;transform:scale(.6);}
-  to{opacity:1;transform:scale(1);}
+@keyframes swarmIn{from{opacity:0;transform:scale(.6);}to{opacity:1;transform:scale(1);}}
+
+@media (max-width:768px){
+  .top-nav{flex-direction:column;height:auto;padding:12px 16px;gap:10px;}
+  .nav-right{flex-direction:column;width:100%;gap:10px;}
+  .nav-links{flex-wrap:wrap;justify-content:center;gap:12px;width:100%;}
+  .nav-links a{font-size:13px;}
+  .logo{font-size:18px;}
+  .search-box{width:100%;}
+  .search-box input{width:100%;flex:1;}
+  .hero{height:240px;}
+  .hero h1{font-size:26px;letter-spacing:2px;}
+  .hero p{font-size:14px;}
+  .news-grid{grid-template-columns:1fr;}
+  .container{padding:30px 16px;}
+  .section-title{font-size:20px;padding-left:12px;}
+  .stats-bar{flex-wrap:wrap;gap:20px;padding:24px 12px;margin:24px 0;}
+  .stat-item{flex:1 1 40%;}
+  .stat-number{font-size:26px;}
+  .stat-label{font-size:12px;}
+  .page-banner{height:130px;}
+  .page-banner h1{font-size:22px;letter-spacing:2px;}
+  .page-banner p{font-size:12px;}
+  .forum-wrap{padding:0 12px;margin:24px auto;}
+  .post-box{padding:16px;}
+  .post-box h2{font-size:16px;}
+  .post-item{padding:14px;gap:10px;}
+  .avatar{width:38px;height:38px;font-size:16px;}
+  .post-meta{font-size:12px;}
+  .post-body h3{font-size:15px;}
+  .post-body p{font-size:13px;}
+  .comments{gap:8px;margin-top:12px;padding-top:10px;}
+  .comment{padding:10px 12px;font-size:12px;}
+  .notice-wrap{padding:0 12px;margin:24px auto;gap:20px;}
+  .notice-card{padding:20px 18px;}
+  .notice-card h2{font-size:17px;}
+  .notice-card p{font-size:14px;line-height:1.9;}
+  .notice-meta{font-size:12px;}
+  .teacher-info{padding:14px 16px;}
+  .teacher-info h4{font-size:16px !important;}
+  .teacher-info p{font-size:13px;}
+  .lab-banner{height:140px;}
+  .lab-banner h1{font-size:24px;}
+  .lab-banner p{font-size:12px;}
+  .lab-wrap{padding:0 12px;margin:24px auto;}
+  .lab-notice{padding:12px 14px;font-size:12px;}
+  .intro-text{font-size:18px;letter-spacing:2px;white-space:normal;text-align:center;padding:0 16px;line-height:1.5;}
+  footer{padding:20px 12px;font-size:12px;}
+  footer p{line-height:1.7;}
+}
+@media (max-width:480px){
+  .hero h1{font-size:22px;}
+  .intro-text{font-size:15px;letter-spacing:1px;}
+  .stat-item{flex:1 1 100%;}
 }
 </style>
 </head>
@@ -221,7 +250,7 @@ footer{background:#2a2a2a;color:#aaa;text-align:center;padding:30px;font-size:13
   <footer><p>福建省泉州第五中学 | 学生论坛</p><p style="margin-top:8px;">本页面为学习模仿用途，非官方站点</p></footer>
 </section>
 
-<!-- ========== 林凯公告（3） ========== -->
+<!-- ========== 林凯公告 ========== -->
 <section class="page" id="page-linkai">
   <nav class="top-nav">
     <div class="logo" onclick="showPage('page-home')">泉州第五中学</div>
@@ -262,7 +291,7 @@ footer{background:#2a2a2a;color:#aaa;text-align:center;padding:30px;font-size:13
   <footer><p>福建省泉州第五中学 | 校园资讯</p><p style="margin-top:8px;">本页面为学习模仿用途，非官方站点</p></footer>
 </section>
 
-<!-- ========== 林凯讨论（4） ========== -->
+<!-- ========== 林凯讨论 ========== -->
 <section class="page" id="page-linkai-forum">
   <nav class="top-nav">
     <div class="logo" onclick="showPage('page-home')">泉州第五中学</div>
@@ -280,7 +309,7 @@ footer{background:#2a2a2a;color:#aaa;text-align:center;padding:30px;font-size:13
   </nav>
   <section class="page-banner"><h1>搜索结果</h1><p>关键词：林凯</p></section>
   <div class="forum-wrap">
-    <div class="search-tip" style="background:#fff;border-radius:10px;padding:16px 22px;margin-bottom:24px;font-size:14px;color:#666;box-shadow:0 2px 10px rgba(0,0,0,.05);">共找到 <strong style="color:#8B1A1A;">2</strong> 条与「<strong style="color:#8B1A1A;">林凯</strong>」相关的帖子</div>
+    <div class="search-tip">共找到 <strong>2</strong> 条与「<strong>林凯</strong>」相关的帖子</div>
     <div class="post-list">
       <div class="post-item"><div class="avatar">张</div><div class="post-body"><div class="post-meta"><span class="name">张同学</span>2024-06-03 21:18</div><h3>有没有人觉得林凯最近很不对劲？</h3><p>我是林凯的同班同学。说实话，他以前挺内向的，安安静静一个人，基本不跟人起冲突。但最近这一个月，他整个人像变了一样，动不动就发火，前几周甚至因为一点小事直接动手打了班里的同学。我们几个人都吓到了，也不敢多问。想知道有没有人了解他到底怎么了？</p><div class="comments"><div class="comment"><span class="c-name">匿名同学</span><span class="c-time">2024-06-03 21:40</span><div>会不会是生病了？我听说有些心理或情绪方面的疾病，会让人性格突然变化，建议他跟家长和老师说说。</div></div><div class="comment"><span class="c-name">同班同学</span><span class="c-time">2024-06-03 22:05</span><div>也有可能不是病，是最近压力太大了。不过打人肯定不对，还是得让老师介入。</div></div><div class="comment"><span class="c-name">匿名同学</span><span class="c-time">2024-06-03 22:31</span><div>你们有没有问过罗克生老师？他是林凯的生物老师，平时跟林凯走得比较近，说不定知道点什么。</div></div><div class="comment"><span class="c-name">同班同学</span><span class="c-time">2024-06-03 22:47</span><div>对，罗老师应该了解一些情况。不过这种事还是别乱猜，等学校那边有说法吧。</div></div></div></div></div>
       <div class="post-item"><div class="avatar">林</div><div class="post-body"><div class="post-meta"><span class="name">林文昌</span>2024-06-04 12:26</div><h3>我是林凯的弟弟，想问问大家我哥最近怎么了</h3><p>我是林凯的弟弟林文昌，比哥哥低了两个年段，平时在学校里跟他碰面的机会不多，很多事情都不太了解。最近听家里人说他在学校出了点事，我哥回家也不肯讲。我怀疑他是不是在学校被人欺负了，又不敢跟家里说。有没有认识我哥的同学，能告诉我一点情况？</p><div class="comments"><div class="comment"><span class="c-name">同班同学</span><span class="c-time">2024-06-04 12:50</span><div>学弟你好，我们跟林凯同班。据我们了解，他在班里应该没有被人霸凌，平时也没见过有人欺负他。</div></div><div class="comment"><span class="c-name">匿名同学</span><span class="c-time">2024-06-04 13:12</span><div>对，反而最近是他情绪不太好，还动手打过同学。所以应该不是他被欺负的问题。</div></div><div class="comment"><span class="c-name">隔壁班同学</span><span class="c-time">2024-06-04 13:35</span><div>我也认识林凯，他之前挺老实的，不像会惹事的人。但最近确实变了很多，建议你们家里人多关心关心他。</div></div><div class="comment"><span class="c-name">同班同学</span><span class="c-time">2024-06-04 14:02</span><div>你跨了两个年段，平时确实不好了解他的情况。要不让你爸妈直接找班主任聊聊？这样更靠谱。</div></div></div></div></div>
@@ -289,7 +318,7 @@ footer{background:#2a2a2a;color:#aaa;text-align:center;padding:30px;font-size:13
   <footer><p>福建省泉州第五中学 | 学生论坛</p><p style="margin-top:8px;">本页面为学习模仿用途，非官方站点</p></footer>
 </section>
 
-<!-- ========== 罗克生讨论（5） ========== -->
+<!-- ========== 罗克生讨论 ========== -->
 <section class="page" id="page-luokesheng-forum">
   <nav class="top-nav">
     <div class="logo" onclick="showPage('page-home')">泉州第五中学</div>
@@ -307,7 +336,7 @@ footer{background:#2a2a2a;color:#aaa;text-align:center;padding:30px;font-size:13
   </nav>
   <section class="page-banner"><h1>搜索结果</h1><p>关键词：罗克生</p></section>
   <div class="forum-wrap">
-    <div class="search-tip" style="background:#fff;border-radius:10px;padding:16px 22px;margin-bottom:24px;font-size:14px;color:#666;box-shadow:0 2px 10px rgba(0,0,0,.05);">共找到 <strong style="color:#8B1A1A;">1</strong> 条与「<strong style="color:#8B1A1A;">罗克生</strong>」相关的帖子</div>
+    <div class="search-tip">共找到 <strong>1</strong> 条与「<strong>罗克生</strong>」相关的帖子</div>
     <div class="post-list">
       <div class="post-item"><div class="avatar">周</div><div class="post-body"><div class="post-meta"><span class="name">周同学</span>2023-03-18 19:42</div><h3>罗克生老师为什么老给大家发牛奶？</h3><p>说个一直想不通的事。罗克生老师真的特别爱给学生发牛奶，几乎每次课后、每次答疑都会顺手递一盒过来。有时候大家不想喝，他还一直劝，说“喝了才有精神”。上次有个学姐明确说不想喝，罗老师还是坚持让她喝，弄得学姐很尴尬。想问问大家，这到底是什么习惯？</p><div class="comments"><div class="comment"><span class="c-name">同班同学</span><span class="c-time">2023-03-18 19:58</span><div>我也遇到过。罗老师人很好，就是这一点有点让人招架不住，感觉他是真心觉得牛奶对身体好。</div></div><div class="comment"><span class="c-name">匿名同学</span><span class="c-time">2023-03-18 20:15</span><div>被强迫喝的那个学姐我也听说了，其实大家不是不领情，就是希望老师别太坚持，尊重一下个人意愿。</div></div><div class="comment"><span class="c-name">隔壁班同学</span><span class="c-time">2023-03-18 20:37</span><div>罗老师可能是把学生当自己孩子看了，出发点应该是好的，只是方式上有点过头。</div></div><div class="comment"><span class="c-name">林凯</span><span class="c-time">2023-03-18 21:04</span><div>其实罗老师对我是真的上心。我生日是9月11日，那天他还特意送了我一盒牛奶，说祝我生日快乐。虽然平时他也老发牛奶，但那次我挺感动的。</div></div><div class="comment"><span class="c-name">同班同学</span><span class="c-time">2023-03-18 21:20</span><div>林凯这么一说，感觉罗老师确实是用自己的方式在关心学生。不过还是希望他能注意分寸，别让人觉得有压力。</div></div><div class="comment"><span class="c-name">匿名同学</span><span class="c-time">2024-03-15 18:26</span><div>说起来，最近罗老师好像状态不太对，这个月已经请了好几次假了，以前他几乎不请假的。上周在走廊碰到他，脸色特别差，整个人看着很疲惫，也不知道是不是身体出了什么问题。</div></div></div></div></div>
     </div>
@@ -315,7 +344,7 @@ footer{background:#2a2a2a;color:#aaa;text-align:center;padding:30px;font-size:13
   <footer><p>福建省泉州第五中学 | 学生论坛</p><p style="margin-top:8px;">本页面为学习模仿用途，非官方站点</p></footer>
 </section>
 
-<!-- ========== 李恩讨论（6） ========== -->
+<!-- ========== 李恩讨论 ========== -->
 <section class="page" id="page-lien-forum">
   <nav class="top-nav">
     <div class="logo" onclick="showPage('page-home')">泉州第五中学</div>
@@ -333,7 +362,7 @@ footer{background:#2a2a2a;color:#aaa;text-align:center;padding:30px;font-size:13
   </nav>
   <section class="page-banner"><h1>搜索结果</h1><p>关键词：李恩</p></section>
   <div class="forum-wrap">
-    <div class="search-tip" style="background:#fff;border-radius:10px;padding:16px 22px;margin-bottom:24px;font-size:14px;color:#666;box-shadow:0 2px 10px rgba(0,0,0,.05);">共找到 <strong style="color:#8B1A1A;">2</strong> 条与「<strong style="color:#8B1A1A;">李恩</strong>」相关的帖子</div>
+    <div class="search-tip">共找到 <strong>2</strong> 条与「<strong>李恩</strong>」相关的帖子</div>
     <div class="post-list">
       <div class="post-item"><div class="avatar">吴</div><div class="post-body"><div class="post-meta"><span class="name">吴同学</span>2023-03-16 20:05</div><h3>李恩学姐真的好厉害，生物工程大赛第一名</h3><p>刚看到学校发的喜报，李恩学姐拿了市级生物工程大赛第一名。之前就听说她实验做得特别好，这次算是实至名归了。作为学妹真的很敬佩她，希望以后也能像她一样。</p><div class="comments"><div class="comment"><span class="c-name">同年级同学</span><span class="c-time">2023-03-16 20:22</span><div>李恩确实很强，平时在实验室里特别专注，很多细节都是她自己一点点抠出来的。</div></div><div class="comment"><span class="c-name">匿名同学</span><span class="c-time">2023-03-16 20:41</span><div>而且她人也很低调，拿了奖也没见她到处说，这点挺让人佩服的。</div></div><div class="comment"><span class="c-name">隔壁班同学</span><span class="c-time">2023-03-16 21:03</span><div>罗克生老师带出来的学生果然不一样，听说备赛那段时间她几乎天天泡在实验室。</div></div></div></div></div>
       <div class="post-item"><div class="avatar">匿</div><div class="post-body"><div class="post-meta"><span class="name">匿名同学</span>2023-11-03 22:14</div><h3>有人知道李恩的事吗？传得沸沸扬扬</h3><p>最近学校里传得很厉害，说李恩出事了。一开始还以为是谣言，后来越传越具体，说她杀了人，然后自己自杀未遂，现在人在医院。真的假的？有没有了解情况的同学说一下，实在有点难以相信，毕竟她以前那么优秀。</p><div class="comments"><div class="comment"><span class="c-name">匿名同学</span><span class="c-time">2023-11-03 22:30</span><div>我也听说了，但版本很多，有说跟家里人起冲突的，也有说跟同学有关的，不确定哪个是真的。</div></div><div class="comment"><span class="c-name">同年级同学</span><span class="c-time">2023-11-03 22:52</span><div>太突然了。她今年 3 月拿奖的时候还是大家眼里的榜样，谁能想到才过了半年多就变成这样。</div></div><div class="comment"><span class="c-name">隔壁班同学</span><span class="c-time">2023-11-03 23:10</span><div>听说她现在虽然抢救过来了，但伤得很重，具体情况还是等官方消息吧，别乱传。</div></div><div class="comment"><span class="c-name">匿名同学</span><span class="c-time">2023-11-03 23:48</span><div>不管怎样，一条人命没了，另一条也差点没了。希望大家嘴上留点余地，也别去打扰她家人。</div></div></div></div></div>
@@ -436,14 +465,12 @@ footer{background:#2a2a2a;color:#aaa;text-align:center;padding:30px;font-size:13
 </div>
 
 <script>
-/* ===== 页面切换 ===== */
 function showPage(id){
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
   document.getElementById(id).classList.add('active');
   window.scrollTo(0,0);
 }
 
-/* ===== 首页搜索 ===== */
 function doSearch(){
   var keyword=document.getElementById('siteSearch').value.trim();
   if(keyword==='林凯'){showPage('page-linkai');return;}
@@ -461,7 +488,6 @@ function doSearch(){
   document.getElementById('newsNoResult').style.display=found?'none':'block';
 }
 
-/* ===== 论坛搜索 ===== */
 function searchPosts(){
   var keyword=document.getElementById('forumSearch').value.trim();
   if(keyword==='林凯'){showPage('page-linkai-forum');return;}
@@ -478,7 +504,6 @@ function searchPosts(){
   document.getElementById('postNoResult').style.display=found?'none':'block';
 }
 
-/* ===== 发帖 ===== */
 function addPost(){
   var title=document.getElementById('postTitle').value.trim();
   var content=document.getElementById('postContent').value.trim();
@@ -495,7 +520,6 @@ function addPost(){
   document.getElementById('postContent').value='';
 }
 
-/* ===== 寄望实验室过场 ===== */
 var introPlayed=false;
 function playIntro(){
   if(introPlayed)return;
