@@ -48,6 +48,9 @@ body{font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Heiti SC",s
 .simple-item h4{font-family:"SimSun","Songti SC",serif;color:var(--primary-red);font-size:16px;margin-bottom:8px;}
 .simple-item p{font-size:13px;line-height:1.8;color:#5a5548;}
 
+.map-box{background:#fffdf8;border:1px solid var(--border);border-radius:2px;padding:20px;box-shadow:2px 2px 0 rgba(0,0,0,.05);text-align:center;}
+.map-box img{max-width:100%;height:auto;border:1px solid var(--border);}
+
 footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font-size:13px;line-height:1.9;margin-top:50px;}
 .footer-links{font-size:12px;color:#8a8070;margin-bottom:10px;padding-bottom:10px;border-bottom:1px dashed #4a4438;}
 
@@ -105,9 +108,10 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
 #page-biologyhope .lab-user-area{display:flex;align-items:center;gap:10px;flex-shrink:0;}
 #page-biologyhope .lab-username{color:#e8eef4;font-size:14px;font-family:"Consolas",monospace;white-space:nowrap;}
 #page-biologyhope .lab-avatar{width:38px;height:38px;border-radius:50%;background:#c0392b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;cursor:pointer;font-family:"Consolas",monospace;flex-shrink:0;}
-#page-biologyhope .lab-banner{background:linear-gradient(135deg,#1a2a3a 0%,#0d1520 100%);height:200px;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#e8eef4;text-align:center;}
+#page-biologyhope .lab-banner{background:linear-gradient(135deg,#1a2a3a 0%,#0d1520 100%);height:220px;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#e8eef4;text-align:center;}
 #page-biologyhope .lab-banner h1{font-size:34px;letter-spacing:3px;margin-bottom:10px;font-family:"Consolas","SF Mono","Menlo","Courier New","Microsoft YaHei",monospace;}
 #page-biologyhope .lab-banner p{font-size:14px;opacity:.7;font-family:"Consolas","SF Mono","Menlo","Courier New","Microsoft YaHei",monospace;}
+#page-biologyhope .lab-sub{font-size:13px;letter-spacing:2px;color:#c0392b;margin-top:6px;font-family:"Consolas","SF Mono","Menlo","Courier New","Microsoft YaHei",monospace;}
 #page-biologyhope .lab-wrap{max-width:1000px;margin:40px auto;padding:0 20px;}
 #page-biologyhope .lab-notice{background:#fff8e6;border-left:4px solid #c9b896;border-radius:2px;padding:14px 20px;margin-bottom:20px;font-size:13px;color:#7a6a3f;line-height:1.8;}
 #page-biologyhope .lab-login-bar{display:flex;gap:10px;align-items:center;background:#fffdf8;border:1px solid var(--border);border-radius:2px;padding:12px 16px;margin-bottom:20px;box-shadow:2px 2px 0 rgba(0,0,0,.05);flex-wrap:wrap;}
@@ -198,6 +202,7 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
   .notice-card{padding:20px 18px;}
   .notice-card h2{font-size:17px;}
   .notice-card p{font-size:13px;}
+  .map-box{padding:12px;}
   #page-biologyhope .lab-wrap{padding:0 12px;margin:24px auto;}
   #page-biologyhope .lab-login-bar{flex-direction:column;align-items:stretch;padding:10px 12px;}
   #page-biologyhope .lab-login-bar input{width:100%;}
@@ -265,6 +270,12 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
   <div class="s-container" style="background:#fffdf8;border:1px solid var(--border);border-radius:2px;box-shadow:2px 2px 0 rgba(0,0,0,.05);">
     <h2 class="section-title">学校概况</h2>
     <p style="line-height:2;color:#5a5548;font-size:14px;">泉州五中创办于1902年，是泉州第一所官立中学堂，也是八闽大地最早的八所新式中学之一。百余年来，学校培养了3.6万多名毕业生，办学成绩卓著，被誉为“闽南教苑的长青之树”。学校形成完整的“一校三区”办学规模，先后获得“全国文明校园”“福建省教育信息化示范学校”“福建省中小学心理健康教育特色学校”等荣誉称号。</p>
+  </div>
+  <div class="s-container">
+    <h2 class="section-title">校园功能分区示意图</h2>
+    <div class="map-box">
+      <img src="campus-map.jpg" alt="校园功能分区示意图">
+    </div>
   </div>
   <div class="s-container">
     <h2 class="section-title">教学教研</h2>
@@ -532,7 +543,11 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
     </div>
   </nav>
 
-  <section class="lab-banner"><h1>biologyhope</h1><p>寄望实验室 · 内部交流论坛</p></section>
+  <section class="lab-banner">
+    <h1>biologyhope</h1>
+    <p>寄望实验室 · 内部交流论坛</p>
+    <p class="lab-sub">抑制控制 - 奖赏评估 - 执行控制</p>
+  </section>
 
   <div class="lab-wrap">
     <div class="lab-notice">本论坛为寄望实验室内部交流使用，非公开页面。请勿将链接转发至外部。</div>
@@ -782,8 +797,8 @@ function addPost(){
   item.innerHTML='<div class="f-avatar">我</div><div class="f-body"><div class="f-meta"><span class="name">我</span>'+time+'</div><h3></h3><p></p><div class="f-actions"><span>👍 0</span><span>💬 0</span></div></div>';
   item.querySelector('h3').textContent=title;
   item.querySelector('p').textContent=content;
-  document.getElementById('postList').prepend(item);
-  document.getElementById('postTitle').value='';
+  document.text.getElementById('postList').prepend(item);
+  document.getElementById('postContentTitle').value='';
   document.getElementById('postContent').value='';
 }
 
@@ -792,7 +807,7 @@ function labLogin(){
   var p=document.getElementById('labPass').value.trim();
   var err=document.getElementById('labError');
   if(u==='Rockson'&&p==='471146'){
-    err.textContent='';
+    err='';
     document.getElementById('labLoginBar').style.display='none';
     document.getElementById('labUserArea').style.display='flex';
     document.getElementById('labUsername').textContent=u;
