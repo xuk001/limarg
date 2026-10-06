@@ -33,7 +33,7 @@ body{font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Heiti SC",s
 .stat-item{text-align:center;}
 .stat-number{font-family:"Consolas",monospace;font-size:32px;color:var(--primary-red);font-weight:bold;}
 .stat-label{color:var(--text-gray);margin-top:6px;font-size:13px;}
-.s-container{max-width:1200px;margin:0 auto;padding:50px 20px;}
+.s-container{max-width:1200px;margin:0 auto;padding:50px 20px;scroll-margin-top:80px;}
 .section-title{font-family:"SimSun","Songti SC",serif;font-size:26px;color:var(--primary-red);border-left:4px solid var(--gold);padding-left:14px;margin-bottom:26px;}
 .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
 .news-card{background:#fffdf8;border:1px solid var(--border);border-radius:2px;padding:20px;box-shadow:2px 2px 0 rgba(0,0,0,.05);}
@@ -188,7 +188,7 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
   .hero p{font-size:13px;}
   .news-grid{grid-template-columns:1fr;}
   .simple-list{grid-template-columns:1fr;}
-  .s-container{padding:30px 16px;}
+  .s-container{padding:30px 16px;scroll-margin-top:20px;}
   .section-title{font-size:20px;padding-left:10px;}
   .stats-bar{flex-wrap:wrap;gap:18px;padding:20px 12px;margin:20px 0;}
   .stat-item{flex:1 1 40%;}
@@ -235,14 +235,15 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
 <!-- 首页 -->
 <section class="page active" id="page-home">
   <nav class="s-nav">
-    <div class="logo" onclick="showPage('page-home')">泉州第五中学</div>
+    <div class="logo" onclick="goHome()">泉州第五中学</div>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a onclick="showPage('page-home')">学校概况</a></li>
-        <li><a onclick="showPage('page-home')">校园资讯</a></li>
-        <li><a onclick="showPage('page-home')">教学教研</a></li>
-        <li><a onclick="showPage('page-home')">德育园地</a></li>
-        <li><a onclick="showPage('page-home')">招生招聘</a></li>
+        <li><a onclick="goHome('sec-news')">校园资讯</a></li>
+        <li><a onclick="goHome('sec-overview')">学校概况</a></li>
+        <li><a onclick="goHome('sec-map')">功能分区</a></li>
+        <li><a onclick="goHome('sec-teaching')">教学教研</a></li>
+        <li><a onclick="goHome('sec-moral')">德育园地</a></li>
+        <li><a onclick="goHome('sec-admission')">招生招聘</a></li>
         <li><a class="forum-btn" onclick="showPage('page-forum')">学生论坛</a></li>
       </ul>
       <div class="search-box">
@@ -258,7 +259,7 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
     <div class="stat-item"><div class="stat-number">3</div><div class="stat-label">校区</div></div>
     <div class="stat-item"><div class="stat-number">120+</div><div class="stat-label">办学历史（年）</div></div>
   </div>
-  <div class="s-container" id="newsSection">
+  <div class="s-container" id="sec-news">
     <h2 class="section-title">校园资讯</h2>
     <div class="news-grid" id="newsGrid">
       <div class="news-card"><div class="news-thumb">校园活动照片</div><div class="date">2023-09-13</div><h3>泉州五中成立绿色环保社团</h3><p>9月12日，在学校团委和社联的组织和指导下，泉州五中绿色环保社团成立仪式在城东校区西梯形教室举行，共有30余名同学参加活动。</p></div>
@@ -267,17 +268,17 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
     </div>
     <div class="no-result" id="newsNoResult">没有找到相关内容</div>
   </div>
-  <div class="s-container" style="background:#fffdf8;border:1px solid var(--border);border-radius:2px;box-shadow:2px 2px 0 rgba(0,0,0,.05);">
+  <div class="s-container" id="sec-overview" style="background:#fffdf8;border:1px solid var(--border);border-radius:2px;box-shadow:2px 2px 0 rgba(0,0,0,.05);">
     <h2 class="section-title">学校概况</h2>
     <p style="line-height:2;color:#5a5548;font-size:14px;">泉州五中创办于1902年，是泉州第一所官立中学堂，也是八闽大地最早的八所新式中学之一。百余年来，学校培养了3.6万多名毕业生，办学成绩卓著，被誉为“闽南教苑的长青之树”。学校形成完整的“一校三区”办学规模，先后获得“全国文明校园”“福建省教育信息化示范学校”“福建省中小学心理健康教育特色学校”等荣誉称号。</p>
   </div>
-  <div class="s-container">
+  <div class="s-container" id="sec-map">
     <h2 class="section-title">校园功能分区示意图</h2>
     <div class="map-box">
-      <img src="campus-map.jpg" alt="校园功能分区示意图">
+      <img src="images/campus-map.jpg" alt="校园功能分区示意图">
     </div>
   </div>
-  <div class="s-container">
+  <div class="s-container" id="sec-teaching">
     <h2 class="section-title">教学教研</h2>
     <div class="simple-list">
       <div class="simple-item"><h4>课程体系</h4><p>构建基础型、拓展型、研究型三类课程，覆盖人文、科学、艺术、体育等领域。</p></div>
@@ -285,7 +286,7 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
       <div class="simple-item"><h4>教育信息化</h4><p>自研教学管理资源平台，实现备课、作业、测评一体化。</p></div>
     </div>
   </div>
-  <div class="s-container">
+  <div class="s-container" id="sec-moral">
     <h2 class="section-title">德育园地</h2>
     <div class="simple-list">
       <div class="simple-item"><h4>社团活动</h4><p>现有学术、艺术、体育、公益类社团 40 余个，每年举办社团文化节。</p></div>
@@ -293,7 +294,7 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
       <div class="simple-item"><h4>志愿服务</h4><p>长期开展社区服务、环保行动、支教帮扶等志愿项目。</p></div>
     </div>
   </div>
-  <div class="s-container">
+  <div class="s-container" id="sec-admission">
     <h2 class="section-title">招生招聘</h2>
     <div class="simple-list">
       <div class="simple-item"><h4>高中招生</h4><p>面向泉州市区招收初中毕业生，含自主招生与统招两类，具体以当年公告为准。</p></div>
@@ -312,14 +313,14 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
 <!-- 学生论坛 -->
 <section class="page" id="page-forum">
   <nav class="s-nav">
-    <div class="logo" onclick="showPage('page-home')">泉州第五中学</div>
+    <div class="logo" onclick="goHome()">泉州第五中学</div>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a onclick="showPage('page-home')">首页</a></li>
-        <li><a onclick="showPage('page-home')">学校概况</a></li>
-        <li><a onclick="showPage('page-home')">校园资讯</a></li>
-        <li><a onclick="showPage('page-home')">教学教研</a></li>
-        <li><a onclick="showPage('page-home')">德育园地</a></li>
+        <li><a onclick="goHome()">首页</a></li>
+        <li><a onclick="goHome('sec-overview')">学校概况</a></li>
+        <li><a onclick="goHome('sec-news')">校园资讯</a></li>
+        <li><a onclick="goHome('sec-teaching')">教学教研</a></li>
+        <li><a onclick="goHome('sec-moral')">德育园地</a></li>
         <li><a class="forum-btn" onclick="showPage('page-forum')">学生论坛</a></li>
       </ul>
       <div class="search-box">
@@ -354,12 +355,12 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
 <!-- 林凯公告 -->
 <section class="page" id="page-linkai">
   <nav class="s-nav">
-    <div class="logo" onclick="showPage('page-home')">泉州第五中学</div>
+    <div class="logo" onclick="goHome()">泉州第五中学</div>
     <ul class="nav-links">
-      <li><a onclick="showPage('page-home')">首页</a></li>
-      <li><a onclick="showPage('page-home')">校园资讯</a></li>
+      <li><a onclick="goHome()">首页</a></li>
+      <li><a onclick="goHome('sec-news')">校园资讯</a></li>
       <li><a class="forum-btn" onclick="showPage('page-forum')">学生论坛</a></li>
-      <li><button class="back-home-btn" onclick="showPage('page-home')">返回首页</button></li>
+      <li><button class="back-home-btn" onclick="goHome()">返回首页</button></li>
     </ul>
   </nav>
   <section class="page-banner"><h1>校园资讯</h1><p>林凯同学相关公告 · 表彰与处分</p></section>
@@ -387,7 +388,7 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
       <p>学校始终坚持立德树人，对任何违反校纪、侵害同学权益的行为零容忍。希望全体同学引以为戒，团结友善，共同维护安全、和谐的校园环境。</p>
       <div class="sign">福建省泉州第五中学 德育处<br>2024年6月5日</div>
     </div>
-    <a class="back-link" onclick="showPage('page-home')">← 返回首页</a>
+    <a class="back-link" onclick="goHome()">← 返回首页</a>
   </div>
   <footer><p>福建省泉州第五中学 | 校园资讯</p><p style="margin-top:8px;font-size:12px;">本页面为学习模仿用途，非官方站点</p></footer>
 </section>
@@ -395,11 +396,11 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
 <!-- 林凯讨论 -->
 <section class="page" id="page-linkai-forum">
   <nav class="s-nav">
-    <div class="logo" onclick="showPage('page-home')">泉州第五中学</div>
+    <div class="logo" onclick="goHome()">泉州第五中学</div>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a onclick="showPage('page-home')">首页</a></li>
-        <li><a onclick="showPage('page-home')">校园资讯</a></li>
+        <li><a onclick="goHome()">首页</a></li>
+        <li><a onclick="goHome('sec-news')">校园资讯</a></li>
         <li><a class="forum-btn" onclick="showPage('page-forum')">学生论坛</a></li>
       </ul>
       <button class="back-home-btn" onclick="showPage('page-forum')">返回论坛</button>
@@ -419,11 +420,11 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
 <!-- 罗克生讨论 -->
 <section class="page" id="page-luokesheng-forum">
   <nav class="s-nav">
-    <div class="logo" onclick="showPage('page-home')">泉州第五中学</div>
+    <div class="logo" onclick="goHome()">泉州第五中学</div>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a onclick="showPage('page-home')">首页</a></li>
-        <li><a onclick="showPage('page-home')">校园资讯</a></li>
+        <li><a onclick="goHome()">首页</a></li>
+        <li><a onclick="goHome('sec-news')">校园资讯</a></li>
         <li><a class="forum-btn" onclick="showPage('page-forum')">学生论坛</a></li>
       </ul>
       <button class="back-home-btn" onclick="showPage('page-forum')">返回论坛</button>
@@ -442,11 +443,11 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
 <!-- 李恩讨论 -->
 <section class="page" id="page-lien-forum">
   <nav class="s-nav">
-    <div class="logo" onclick="showPage('page-home')">泉州第五中学</div>
+    <div class="logo" onclick="goHome()">泉州第五中学</div>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a onclick="showPage('page-home')">首页</a></li>
-        <li><a onclick="showPage('page-home')">校园资讯</a></li>
+        <li><a onclick="goHome()">首页</a></li>
+        <li><a onclick="goHome('sec-news')">校园资讯</a></li>
         <li><a class="forum-btn" onclick="showPage('page-forum')">学生论坛</a></li>
       </ul>
       <button class="back-home-btn" onclick="showPage('page-forum')">返回论坛</button>
@@ -466,12 +467,12 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
 <!-- 罗克生表彰 -->
 <section class="page" id="page-luokesheng">
   <nav class="s-nav">
-    <div class="logo" onclick="showPage('page-home')">泉州第五中学</div>
+    <div class="logo" onclick="goHome()">泉州第五中学</div>
     <ul class="nav-links">
-      <li><a onclick="showPage('page-home')">首页</a></li>
-      <li><a onclick="showPage('page-home')">校园资讯</a></li>
+      <li><a onclick="goHome()">首页</a></li>
+      <li><a onclick="goHome('sec-news')">校园资讯</a></li>
       <li><a class="forum-btn" onclick="showPage('page-forum')">学生论坛</a></li>
-      <li><button class="back-home-btn" onclick="showPage('page-home')">返回首页</button></li>
+      <li><button class="back-home-btn" onclick="goHome()">返回首页</button></li>
     </ul>
   </nav>
   <section class="page-banner"><h1>教师表彰</h1><p>罗克生老师 · 教学与科研成就</p></section>
@@ -488,7 +489,7 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
       <p>为表彰罗克生老师在教育教学与生物工程领域的突出贡献，经学校研究决定，特予以通报表彰，并号召全体教师向其学习。</p>
       <div class="sign">福建省泉州第五中学 教务处<br>2023年3月20日</div>
     </div>
-    <a class="back-link" onclick="showPage('page-home')">← 返回首页</a>
+    <a class="back-link" onclick="goHome()">← 返回首页</a>
   </div>
   <footer><p>福建省泉州第五中学 | 教师表彰</p><p style="margin-top:8px;font-size:12px;">本页面为学习模仿用途，非官方站点</p></footer>
 </section>
@@ -496,12 +497,12 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
 <!-- 李恩喜报 -->
 <section class="page" id="page-lien">
   <nav class="s-nav">
-    <div class="logo" onclick="showPage('page-home')">泉州第五中学</div>
+    <div class="logo" onclick="goHome()">泉州第五中学</div>
     <ul class="nav-links">
-      <li><a onclick="showPage('page-home')">首页</a></li>
-      <li><a onclick="showPage('page-home')">校园资讯</a></li>
+      <li><a onclick="goHome()">首页</a></li>
+      <li><a onclick="goHome('sec-news')">校园资讯</a></li>
       <li><a class="forum-btn" onclick="showPage('page-forum')">学生论坛</a></li>
-      <li><button class="back-home-btn" onclick="showPage('page-home')">返回首页</button></li>
+      <li><button class="back-home-btn" onclick="goHome()">返回首页</button></li>
     </ul>
   </nav>
   <section class="page-banner"><h1>校园资讯</h1><p>李恩同学获奖喜报</p></section>
@@ -520,7 +521,7 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
       <p>希望全体同学以李恩同学为榜样，在各自感兴趣的领域深耕细作，为校争光。</p>
       <div class="sign">福建省泉州第五中学 教务处<br>2023年3月15日</div>
     </div>
-    <a class="back-link" onclick="showPage('page-home')">← 返回首页</a>
+    <a class="back-link" onclick="goHome()">← 返回首页</a>
   </div>
   <footer><p>福建省泉州第五中学 | 校园资讯</p><p style="margin-top:8px;font-size:12px;">本页面为学习模仿用途，非官方站点</p></footer>
 </section>
@@ -535,11 +536,11 @@ footer{background:#2e2a24;color:#a89c88;text-align:center;padding:26px 20px;font
         <div class="lab-avatar" onclick="showReport()" title="研究报告记录">R</div>
       </div>
       <ul class="nav-links">
-        <li><a onclick="showPage('page-home')">首页</a></li>
-        <li><a onclick="showPage('page-home')">校园资讯</a></li>
+        <li><a onclick="goHome()">首页</a></li>
+        <li><a onclick="goHome('sec-news')">校园资讯</a></li>
         <li><a onclick="showPage('page-forum')" class="forum-btn">学生论坛</a></li>
       </ul>
-      <button class="back-home-btn" onclick="showPage('page-home')">返回首页</button>
+      <button class="back-home-btn" onclick="goHome()">返回首页</button>
     </div>
   </nav>
 
@@ -753,6 +754,19 @@ function showPage(id){
   if(id==='page-biologyhope'){playIntro();}
 }
 
+function goHome(secId){
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
+  document.getElementById('page-home').classList.add('active');
+  if(secId){
+    setTimeout(function(){
+      var el=document.getElementById(secId);
+      if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}
+    },60);
+  }else{
+    window.scrollTo(0,0);
+  }
+}
+
 function doSearch(){
   var keyword=document.getElementById('siteSearch').value.trim();
   if(keyword==='林凯'){showPage('page-linkai');return;}
@@ -797,8 +811,8 @@ function addPost(){
   item.innerHTML='<div class="f-avatar">我</div><div class="f-body"><div class="f-meta"><span class="name">我</span>'+time+'</div><h3></h3><p></p><div class="f-actions"><span>👍 0</span><span>💬 0</span></div></div>';
   item.querySelector('h3').textContent=title;
   item.querySelector('p').textContent=content;
-  document.text.getElementById('postList').prepend(item);
-  document.getElementById('postContentTitle').value='';
+  document.getElementById('postList').prepend(item);
+  document.getElementById('postTitle').value='';
   document.getElementById('postContent').value='';
 }
 
@@ -807,7 +821,7 @@ function labLogin(){
   var p=document.getElementById('labPass').value.trim();
   var err=document.getElementById('labError');
   if(u==='Rockson'&&p==='471146'){
-    err='';
+    err.textContent='';
     document.getElementById('labLoginBar').style.display='none';
     document.getElementById('labUserArea').style.display='flex';
     document.getElementById('labUsername').textContent=u;
